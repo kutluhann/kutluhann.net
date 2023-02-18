@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '@/components/layout'
-import { Inter } from '@next/font/google'
-import { getSortedPostData } from '@/utils/posts'
+import Post from '@/components/post'
+import SearchArea from '@/components/searchArea'
+import CategoriesArea from '@/components/categoriesArea'
+import { getSortedPostData, getActiveCategories } from '@/utils/posts'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData, activeCategories }) {
   return (
     <Layout>
       <Head>
@@ -15,26 +15,42 @@ export default function Home({ allPostsData }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ul>
-        {allPostsData.map(({ id, title, date }) => (
-          <li key={id}>
-            <Link href={`/${id}`}>{title}</Link>
-            <h2>{date}</h2>
-          </li>
-        ))}
-      </ul>
+      <main className="pt-12 px-6">
+        <section>
+          <div className="container">
+            <h2 className="title text-2 mb-6 text-center">Blog</h2>
+          </div>
+        </section>
+        <section className="mt-8 touch:mt-6">
+          <div className="container flex">
+            <div className="flex touch:flex-col-reverse w-full desktop:w-10/12 widescreen:w-9/12 mx-auto">
+              <div className="w-2/3 touch:w-full desktop:mx-3 touch:my-2 h-auto relative">
+                {allPostsData.map((postData) => (
+                  <Post key={postData.id} postData={postData} />
+                ))}
+              </div>
+              <aside className="w-1/3 touch:w-full desktop:mx-3 touch:mb-2 h-auto">
+                <div className="sticky top-6 w-full flex flex-col justify-satart items-center touch:flex-col-reverse">
+                  <SearchArea />
+                  <CategoriesArea categories={activeCategories} />
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
     </Layout>
   )
 }
 
 export function getStaticProps() {
   const allPostsData = getSortedPostData()
+  const activeCategories = getActiveCategories()
 
-
-  console.log(allPostsData)
   return {
     props: {
-      allPostsData
+      allPostsData,
+      activeCategories
     }
   }
 }

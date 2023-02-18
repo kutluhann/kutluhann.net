@@ -1,3 +1,83 @@
 @tailwind base;
+
+/*Base Styles*/
+html{
+  @apply text-secondary ;
+}
+body{
+  @apply font-sans;
+}
+/**/
+
 @tailwind components;
+
+/*Customize Components */
+.title{
+  @apply font-bold text-4 leading-tight;
+}
+/*
+.wiggle{
+  background-image: url(../../static/wiggle.svg)
+}*/
+
+@screen tablet {
+  .container{
+    @apply max-w-full;
+  }
+}
+@screen desktop {
+  .container{
+    @apply max-w-desktop;
+  }
+}
+
+@screen widescreen {
+  .container{
+    @apply max-w-widescreen;
+  }
+}
+
+@screen fullhd {
+  .container{
+    @apply max-w-fullhd;
+  }
+}
+/**/
+
 @tailwind utilities;
+
+/*Add New Utilities*/
+.transition{
+  transition: all .1s ease;
+}
+
+.transition-bg{
+  transition: background .1s ease;
+}
+
+.transition-text{
+  transition: color .1s ease;
+}
+
+.transition-opacity{
+  transition: opacity .1s ease;
+}
+
+.transition-size{
+  transition-duration: .1s;
+  transition-timing-function: ease;
+  transition-property: height, width;
+}
+
+.transition-rotate{
+  transition-duration: .6s;
+  transition-timing-function: ease;
+  transition-property: color, transform;
+}
+
+@variants hover{
+  .rotate{
+    transform: rotate(720deg);
+  }
+}
+/**/

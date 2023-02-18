@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
+import { categories } from './categories'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -17,9 +18,13 @@ export function getSortedPostData() {
 
     const matterResult = matter(fileContents)
 
+    const postCategory = categories.find(category => category.id == matterResult.data.category)
+
     return {
       id,
-      ...matterResult.data
+      ...matterResult.data,
+      categoryName: postCategory.name,
+      categoryColor: postCategory.color,
     }
   })
 
@@ -53,9 +58,31 @@ export async function getPostData(id) {
 
   const htmlContent = processedContent.toString()
 
+  const postCategory = categories.find(category => category.id == matterResult.data.category)
+
   return {
     id,
     htmlContent,
-    ...matterResult.data
+    ...matterResult.data,
+    categoryName: postCategory.name,
+    categoryColor: postCategory.color,
   }
+}
+
+export function getActiveCategories() {
+  const allPostsData = getSortedPostData()
+
+  return categories.reduce((groups, category) => {
+    const relatedPosts = allPostsData.filter(post => post.category == category.id)
+    const postCount = relatedPosts.length
+    
+    if (postCount) {
+      groups.push({
+        postCount,
+        ...category
+      })
+    }
+
+    return groups;
+  }, [])
 }

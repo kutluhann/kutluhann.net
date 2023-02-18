@@ -33,3 +33,9 @@ Daha detaylı bilgi için [dökümantasyonundan](https://vuex.vuejs.org/) bakabi
 * **Getters**
 * **Mutations**
 * **Actions**
+
+```html
+<Link href="/ikinci-yazi">
+  Hey
+</Link>
+```
