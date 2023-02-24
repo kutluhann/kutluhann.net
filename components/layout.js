@@ -1,5 +1,29 @@
-export default function Layout({ children }) {
+import SearchArea from '@/components/searchArea'
+import CategoriesArea from '@/components/categoriesArea'
+
+export default function Layout({ children, activeCategories }) {
     return (
-        <div>{children}</div>
+        <main className="pt-12 px-6">
+        <section>
+          <div className="container">
+            <h2 className="title text-2 mb-6 text-center">Blog</h2>
+          </div>
+        </section>
+        <section className="mt-8 touch:mt-6">
+          <div className="container flex">
+            <div className="flex touch:flex-col-reverse w-full desktop:w-10/12 widescreen:w-9/12 mx-auto">
+              <div className="w-2/3 touch:w-full desktop:mx-3 touch:my-2 h-auto relative">
+                {children}
+              </div>
+              <aside className="w-1/3 touch:w-full desktop:mx-3 touch:mb-2 h-auto">
+                <div className="sticky top-6 w-full flex flex-col justify-satart items-center touch:flex-col-reverse">
+                  <SearchArea />
+                  <CategoriesArea categories={activeCategories} />
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
     )
 }

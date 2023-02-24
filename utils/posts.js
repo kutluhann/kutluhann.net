@@ -86,3 +86,15 @@ export function getActiveCategories() {
     return groups;
   }, [])
 }
+
+export function getActiveCategoryIds() {
+  const activeCategories = getActiveCategories();
+  
+  return activeCategories.map(category => {
+    return {
+      params: {
+        id: category.id
+      }
+    }
+  })
+}
