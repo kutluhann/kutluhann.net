@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Date from "@/components/date"
 
 export default function Post({ postData }) {
   return (
@@ -10,7 +11,7 @@ export default function Post({ postData }) {
               <span style={{backgroundColor: postData.categoryColor}} className="w-2 h-2 rounded-sm"></span>
             </span>
             <span className="ml-2">
-              {postData.category}
+              {postData.categoryName}
             </span>
           </span>
           <h3 className="title touch:text-5 mb-2 cursor-pointer">
@@ -22,7 +23,9 @@ export default function Post({ postData }) {
         <div className="flex justify-between items-center">
           <span className="text-8 touch:text-9 text-gray-600 flex justify-center items-center">
             <span>&#8211;</span>
-            <span className="ml-1">{postData.date}</span>
+            <span className="ml-1">
+              <Date dateString={postData.date}/>
+            </span>
           </span>
           <Link 
             href={`/${postData.id}`}

@@ -1,4 +1,5 @@
 import { getAllPostIds, getPostData } from "@/utils/posts"
+import Date from "@/components/date"
 
 export default function PostPage({ postData }) {
   return (
@@ -13,11 +14,11 @@ export default function PostPage({ postData }) {
                     <span className="h-3 w-3 flex justify-center items-center">
                       <span style={{backgroundColor: postData.categoryColor}} className="w-2 h-2 rounded-sm"></span>
                     </span>
-                    <span className="ml-2">{postData.category}</span>
+                    <span className="ml-2">{postData.categoryName}</span>
                   </span>
                   <span className="mx-2">&#8211;</span>
                   <span className="text-8 text-gray-600 flex justify-center items-center">
-                    <span>{postData.date}</span>
+                    <Date dateString={postData.date} />
                   </span>
                 </div>
                 <h1 className="title text-3 my-1 w-full break-word">{postData.title}</h1>
