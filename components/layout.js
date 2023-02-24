@@ -1,7 +1,7 @@
-import SearchArea from '@/components/searchArea'
-import CategoriesArea from '@/components/categoriesArea'
+import SearchArea from '@/components/search-area'
+import CategoriesArea from '@/components/categories-area'
 
-export default function Layout({ children, activeCategories }) {
+export default function Layout({ children, activeCategories, searchString, setSearchString }) {
     return (
         <main className="pt-12 px-6">
         <section>
@@ -17,7 +17,11 @@ export default function Layout({ children, activeCategories }) {
               </div>
               <aside className="w-1/3 touch:w-full desktop:mx-3 touch:mb-2 h-auto">
                 <div className="sticky top-6 w-full flex flex-col justify-satart items-center touch:flex-col-reverse">
-                  <SearchArea />
+                  <SearchArea 
+                    categories={activeCategories} 
+                    searchString={searchString}
+                    setSearchString={setSearchString}
+                  />
                   <CategoriesArea categories={activeCategories} />
                 </div>
               </aside>
