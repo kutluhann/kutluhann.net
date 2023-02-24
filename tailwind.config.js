@@ -20,7 +20,7 @@ module.exports = {
       white: '#fff',
 
       primary: {
-        default: '#69b578',
+        DEFAULT: '#69b578',
         dark: '#3a7d44'
       },
       secondary: '#424242',
@@ -83,25 +83,25 @@ module.exports = {
     },
     borderColor: theme => ({
       ...theme('colors'),
-      default: theme('colors.gray.300', 'currentColor'),
+      DEFAULT: theme('colors.gray.300', 'currentColor'),
     }),
     borderRadius: {
       none: '0',
       sm: '0.125rem',
-      default: '0.25rem',
+      DEFAULT: '0.25rem',
       lg: '0.5rem',
       full: '9999px',
       '10': '10px',
     },
     borderWidth: {
-      default: '1px',
+      DEFAULT: '1px',
       '0': '0',
       '2': '2px',
       '4': '4px',
       '8': '8px',
     },
     boxShadow: {
-      default: '0 1px 10px rgba(0, 0,0 ,0.15)',
+      DEFAULT: '0 1px 10px rgba(0, 0, 0, 0.15)',
       md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       none: 'none',
@@ -111,7 +111,7 @@ module.exports = {
     },
     cursor: {
       auto: 'auto',
-      default: 'default',
+      DEFAULT: 'default',
       pointer: 'pointer',
       wait: 'wait',
       text: 'text',
@@ -129,11 +129,11 @@ module.exports = {
     },
     flexGrow: {
       '0': '0',
-      default: '1',
+      DEFAULT: '1',
     },
     flexShrink: {
       '0': '0',
-      default: '1',
+      DEFAULT: '1',
     },
     fontFamily: {
       sans: ['Open Sans', 'sans-serif'],
