@@ -22,7 +22,7 @@ export default function SearchArea({ categories, searchString, setSearchString }
           <span className="ml-2">Ara</span>
         </h3>
       </label>
-      <form action="">
+      <form action="" onSubmit={(e) => e.preventDefault()}>
         <input id="search-input" className="h-8 w-full border-none focus:outline-none text-8 touch:text-7" type="text" 
           placeholder={generatePlaceholder()} 
           onChange={(event) => setSearchString(event.target.value)}
