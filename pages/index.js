@@ -12,6 +12,7 @@ export default function Home({ allPostsData, activeCategories }) {
       activeCategories={activeCategories}
       searchString={searchString}
       setSearchString={setSearchString}
+      home
     >
       <Head>
         <title>Create Next App</title>

@@ -7,7 +7,7 @@ import Layout from "@/components/layout";
 
 export default function PostPage({ postData }) {
   return (
-    <Layout postPage={true}>
+    <Layout>
       <main className="mt-12">
         <section>
           <article className="mx-auto w-full flex flex-col">

@@ -3,7 +3,7 @@ import CategoriesArea from '@/components/categories-area'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Layout({ children, activeCategories, searchString, setSearchString, postPage }) {
+export default function Layout({ children, activeCategories, searchString, setSearchString, home }) {
     return (
       <>  
         <header className="wiggle bg-primary text-white">
@@ -35,7 +35,7 @@ export default function Layout({ children, activeCategories, searchString, setSe
             </div>
           </div>
         </header>
-        {!postPage ? (
+        {home ? (
           <main className="pt-12 px-4">
             <section>
               <div className="container">

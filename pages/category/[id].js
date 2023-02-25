@@ -12,6 +12,7 @@ export default function CategoryPage({ activeCategories, postsFilteredByCategory
       activeCategories={activeCategories}
       searchString={searchString}
       setSearchString={setSearchString}
+      home
     >
       <Head>
         <title>Create Next App</title>
