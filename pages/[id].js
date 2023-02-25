@@ -26,7 +26,7 @@ export default function PostPage({ postData }) {
             <p className="text-7 text-gray-600">{postData.description}</p>
           </header>
           <ReactMarkdown 
-            className="mx-auto w-full desktop:w-180 py-2 desktop:p-4 touch:px-6 content"
+            className="mx-auto w-full desktop:w-180 py-2 desktop:p-4 touch:px-4 content"
             components={{code({node, inline, className, children, ...props}) {
               const match = /language-(\w+)/.exec(className || '')
               return !inline && match ? (

@@ -3,7 +3,7 @@ import CategoriesArea from '@/components/categories-area'
 
 export default function Layout({ children, activeCategories, searchString, setSearchString }) {
     return (
-        <main className="pt-12 px-6">
+        <main className="pt-12 px-4">
         <section>
           <div className="container">
             <h2 className="title text-2 mb-6 text-center">Blog</h2>
