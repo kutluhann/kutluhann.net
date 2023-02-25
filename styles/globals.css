@@ -15,10 +15,10 @@ body{
 .title{
   @apply font-bold text-4 leading-tight;
 }
-/*
+
 .wiggle{
-  background-image: url(../../static/wiggle.svg)
-}*/
+  background-image: url(../public/images/wiggle.svg)
+}
 
 @screen tablet {
   .container{
