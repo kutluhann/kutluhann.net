@@ -12,7 +12,7 @@ export default function PostList({ posts, searchString }) {
         <Post key={postData.id} postData={postData} />
       ))}
       {!(filterPosts().length )&& (
-        <p class="title">Opps.. Maalesef Arama Sonucu Bulunamadı!</p>
+        <p className="title">Opps.. Maalesef Arama Sonucu Bulunamadı!</p>
       )}
     </>
   )
