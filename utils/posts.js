@@ -1,8 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
 import { categories } from './categories'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
@@ -50,20 +48,14 @@ export async function getPostData(id) {
   const filePath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(filePath)
 
-  const matterResult = matter(fileContents)
+  const { data, content } = matter(fileContents)
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
-
-  const htmlContent = processedContent.toString()
-
-  const postCategory = categories.find(category => category.id == matterResult.data.category)
+  const postCategory = categories.find(category => category.id == data.category)
 
   return {
     id,
-    htmlContent,
-    ...matterResult.data,
+    content,
+    ...data,
     categoryName: postCategory.name,
     categoryColor: postCategory.color,
   }

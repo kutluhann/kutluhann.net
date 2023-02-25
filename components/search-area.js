@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 
 export default function SearchArea({ categories, searchString, setSearchString }) {
-  const router = useRouter()
+  const { pathname, query } = useRouter()
 
   function generatePlaceholder() {
-    if (router.asPath == '/') return 'Gönderilerde ara.. '
+    if (pathname == '/') return 'Gönderilerde ara.. '
     else {
-      const activeCategory = categories.filter(category => category.id == router.query.id)[0]
+      const activeCategory = categories.filter(category => category.id == query.id)[0]
       return `${activeCategory?.name} kategorisinde ara..`
     }
   }

@@ -2,7 +2,9 @@ import Link from "next/link"
 import { useRouter } from 'next/router'
 
 export default function CategoriesAres({ categories }) {
-  const router = useRouter()
+  const { pathname, query } = useRouter()
+
+  const isRoot = pathname == '/'
 
   function getTotalPostCount() {
     return categories.reduce((sum, category) => {
@@ -31,7 +33,7 @@ export default function CategoriesAres({ categories }) {
             >
               <span
                 className={'bg-secondary rounded-sm group-hover:h-3 group-hover:w-3 transition-size' 
-                  + (router.asPath == '/' ? ' w-3 h-3 ' : ' w-2 h-2 ')}
+                  + (isRoot ? ' w-3 h-3 ' : ' w-2 h-2 ')}
               ></span>
               </span>
             <span className="ml-2 text-gray-600">Tüm yazılar / {getTotalPostCount()}</span>
@@ -47,7 +49,7 @@ export default function CategoriesAres({ categories }) {
                 <span 
                   style={{backgroundColor: category.color}}
                   className={'rounded-sm group-hover:h-3 group-hover:w-3 transition-size' 
-                    + (router.query.id == category.id ? ' w-3 h-3 ' : ' w-2 h-2 ')}
+                    + (query.id == category.id ? ' w-3 h-3 ' : ' w-2 h-2 ')}
                 ></span>
               </span>
               <span className="ml-2 text-gray-600">{category.name} / {category.postCount}</span>
