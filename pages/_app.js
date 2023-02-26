@@ -6,7 +6,7 @@ const openSans = Open_Sans({ subsets: ['latin', 'latin-ext'] })
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={openSans.className}>
+    <div className={openSans.className + " flex flex-col min-h-screen"}>
       <Component {...pageProps} />
     </div>
   )
