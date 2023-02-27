@@ -4,10 +4,15 @@ import ReactMarkdown from "react-markdown"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nightOwl } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import Layout from "@/components/layout";
+import Head from "next/head";
 
 export default function PostPage({ postData }) {
   return (
     <Layout>
+      <Head>
+        <title>{`${postData.title} - kutluhann.net`}</title>
+        <meta name="description" content={postData.description} />
+      </Head>
       <main className="mt-12">
         <section>
           <article className="mx-auto w-full flex flex-col">

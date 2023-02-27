@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
-const name = "Hasan Kutluhan Şıpka"
-const desc = "CS Student at Bilkent University"
+export const name = "Hasan Kutluhan Şıpka"
+export const desc = "CS Student at Bilkent University"
+
 const twitterLink = "https://twitter.com/kutluhan22"
 const instagramLink = "https://www.instagram.com/1dolarkactl/"
 const githubLink = "https://github.com/kutluhann"

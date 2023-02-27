@@ -2,10 +2,18 @@ import SearchArea from '@/components/search-area'
 import CategoriesArea from '@/components/categories-area'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
+import Head from 'next/head'
+import { desc } from '@/components/header'
 
 export default function Layout({ children, activeCategories, searchString, setSearchString, home }) {
     return (
       <>  
+        <Head>
+          <title>Blog - Hasan Kutluhan Şıpka</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content={desc} />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Header />
         <div className="flex-grow">
           {home ? (

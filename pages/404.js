@@ -1,9 +1,13 @@
 import Link from "next/link"
+import Head from "next/head"
 import Layout from "@/components/layout"
 
 export default function Page404() {
   return (
     <Layout>
+      <Head>
+        <title>Sayfa Bulunamadı - kutluhann.net</title>
+      </Head>
       <main className="pt-12 px-6">
         <section>
           <div className="container flex flex-col items-center">
