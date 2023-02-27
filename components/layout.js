@@ -12,7 +12,7 @@ export default function Layout({ children, activeCategories, searchString, setSe
           <title>Blog - Hasan Kutluhan Şıpka</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content={desc} />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         </Head>
         <Header />
         <div className="flex-grow">
