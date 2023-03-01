@@ -3,7 +3,7 @@ import '@/styles/post.scss'
 import { Analytics } from '@vercel/analytics/react';
 
 import { Open_Sans } from '@next/font/google'
-const openSans = Open_Sans({ subsets: ['latin', 'latin-ext'] })
+const openSans = Open_Sans({ subsets: ['latin', 'latin-ext'], display: 'swap' })
 
 export default function App({ Component, pageProps }) {
   return (
